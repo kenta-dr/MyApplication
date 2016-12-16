@@ -2,6 +2,9 @@ package com.example.kenta.myapplication;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.File;
 import java.util.List;
 
 /**
@@ -37,7 +41,30 @@ public class CustomAdapter extends ArrayAdapter<CustomData> {
         ImageView imageView;
         imageView = (ImageView)convertView.findViewById(R.id.icon);
 
-        imageView.setImageResource(item.getImageData());
+        //imageView.setImageResource(item.getImageData());
+
+
+        //String filename =  "111327955";
+        String filename =  item.getUser_image_file_name_();
+
+        File file = Environment.getExternalStorageDirectory();
+        String path = file.getPath();
+        filename = path + "/SampleFolder/" + filename;
+
+        BitmapFactory.Options option = new BitmapFactory.Options();
+        option.inJustDecodeBounds = true;	//画像の情報だけ読みとり指定
+        BitmapFactory.decodeFile( filename, option );
+        //画像サイズが取得できるので適当に利用する
+        int bmpwidth = option.outWidth;
+        int bmpheight = option.outHeight;
+        int bmpscale = 1;	//大きな画像は、縮小サイズで読み込み
+        option.inSampleSize = bmpscale;
+        option.inJustDecodeBounds = false;	//画像本体を読み込み指定
+
+        Bitmap bmp = BitmapFactory.decodeFile( filename, option );
+        imageView.setScaleType(ImageView.ScaleType.CENTER);	//元のサイズで中央に表示
+        imageView.setImageBitmap(bmp);
+
 
         TextView textView;
 

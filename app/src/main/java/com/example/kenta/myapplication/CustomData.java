@@ -8,12 +8,22 @@ import android.graphics.Bitmap;
 
 public class CustomData {
     private int imageData_;
+
+    private String user_image_file_name_;
     private String name_;
     private String id_;
     private String time_;
     private String tweet_;
     private String via_;
 
+
+    public String getUser_image_file_name_() {
+        return user_image_file_name_;
+    }
+
+    public void setUser_image_file_name_(String user_image_file_name_) {
+        this.user_image_file_name_ = user_image_file_name_;
+    }
 
     public void setImagaData(int image) {
         imageData_ = image;

@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 
 public class DatabaseHelper extends SQLiteOpenHelper {
-    public static final String DATABASE_NAME = "aaaa0000.db";
+    public static final String DATABASE_NAME = "aaaa0001.db";
     public static final int DATABASE_VERSION = 1;
 
     public DatabaseHelper(Context context) {
@@ -21,6 +21,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // テーブル作成SQL
         String sql = "CREATE TABLE TweetList ("
                 + " tweet_id INTEGER PRIMARY KEY AUTOINCREMENT"
+                + ",user_image_file_name TEXT"
                 + ",user_id TEXT"
                 + ",user_name TEXT"
                 + ",tweet TEXT"

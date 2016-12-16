@@ -49,8 +49,12 @@ public class FileDL {
             Log.i("FileDL", "フォルダある");
         }
 
-        File outputFile = new File(directory, "test.jpg");
-        asyncfiledownload = new AsyncFileDownload(mainActivity, this.DOWNLOAD_FILE_URL, outputFile);
+        //File outputFile = new File(directory, "test.jpg");
+        File outputFile = new File(directory, fileName);
+
+        //asyncfiledownload = new AsyncFileDownload(mainActivity, this.DOWNLOAD_FILE_URL, outputFile);
+        asyncfiledownload = new AsyncFileDownload(mainActivity, fileUrl, outputFile);
+
         asyncfiledownload.execute();
         Log.i("FileDL", "asyncfiledownload実行");
 

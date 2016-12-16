@@ -147,15 +147,25 @@ public class AsyncHttpRequest extends AsyncTask<Object, Object, AsyncTwitter> {
 
                 String via = status2.getSource();
 
+                String time = status2.getCreatedAt().toString();
+
+                //String imageUrl = status2.getUser().getProfileImageURL();
+                String imageUrl = status2.getUser().getBiggerProfileImageURL();
+                String userId = String.valueOf(status2.getUser().getId());
+
                 //adapter.add("ユーザーID：" + userName + "\r\n" + "tweet：" + tweet);
                 //Log.i("AsyncTask", userName + " : " + tweet);
 
+                FileDL filedl = new FileDL(this.mainActivity);
+                filedl.initFileLoader(imageUrl, userId + ".jpg");
+
                 // 項目のセット
                 ContentValues values = new ContentValues();
+                values.put("user_image_file_name", userId + ".jpg");
                 values.put("user_id", userName);
                 values.put("user_name", userNameJP);
                 values.put("tweet", tweet);
-                values.put("time", "24:00:00");
+                values.put("time", time);
                 values.put("via", via);
 
                 DatabaseHelper databaseHelper = new DatabaseHelper(this.mainActivity);
@@ -171,6 +181,7 @@ public class AsyncHttpRequest extends AsyncTask<Object, Object, AsyncTwitter> {
         } catch (TwitterException e) {
             e.printStackTrace();
         }
+
 
 
         String result = null;

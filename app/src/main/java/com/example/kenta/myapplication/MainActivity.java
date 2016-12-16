@@ -195,6 +195,7 @@ public class MainActivity extends AppCompatActivity {
                         int iconId = getResources().getIdentifier("iconkm", "drawable", getPackageName());
 
                         item1.setImagaData(iconId);
+                        item1.setUser_image_file_name_(cursor.getString(cursor.getColumnIndex("user_image_file_name")));
                         item1.setName_(cursor.getString(cursor.getColumnIndex("user_name")));
                         item1.setId_("@" + cursor.getString(cursor.getColumnIndex("user_id")));
                         item1.setTweet_(cursor.getString(cursor.getColumnIndex("tweet")));
@@ -287,8 +288,6 @@ public class MainActivity extends AppCompatActivity {
                 AsyncHttpRequest atClass = new AsyncHttpRequest(MainActivity.this);
                 atClass.execute(builder);
 
-                FileDL filedl = new FileDL(MainActivity.this);
-                filedl.initFileLoader();
 
 
             }

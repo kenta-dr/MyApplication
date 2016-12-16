@@ -22,7 +22,7 @@ public class AsyncFileDownload extends AsyncTask<String, Void, Boolean> {
     private final int TIMEOUT_CONNECT = 30000;
 
     public Activity owner;
-    private final int BUFFER_SIZE = 1024;
+    private final int BUFFER_SIZE = 2048;
 
     private String urlString;
     private File outputFile;
