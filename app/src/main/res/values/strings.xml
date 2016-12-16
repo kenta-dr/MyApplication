@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">My Application</string>
+
+
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="twitter_consumer_key">PgVNg08QoZ1EO2ZaxNgKpClMy</string>
+    <string name="twitter_consumer_secret">uL3fHEx5IJJQvMqQsM63k1U7kR4srLAgc0af0GnLpipLeEEjL5</string>
+</resources>
